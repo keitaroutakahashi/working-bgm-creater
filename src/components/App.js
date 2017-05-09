@@ -1,28 +1,14 @@
-import React, { Component } from 'react';
-import fetchJsonp from 'fetch-jsonp';
+import React from 'react';
+import Create from '../components/Create';
+// import CreateContainer from '../containers/CreateContainer';
+import PlayContainer from '../containers/PlayContainer';
 
 
-export default class App extends Component {
- constructor() {
-  super();
- }
+const App = () => (
+  <div>
+    <Create />
+    {/*<PlayContainer />*/}
+  </div>
+);
 
- componentDidMount() {
-  fetchJsonp('https://itunes.apple.com/search?lang=ja_jp&entry=music&media=music&country=JP&term=flower&attribute=artistTerm&limit=100&_=1492927545219')
-  .then(function(response) {
-    return response.json()
-  }).then(function(json) {
-    console.log('parsed json', json)
-  }).catch(function(ex) {
-    console.log('parsing failed', ex)
-  })
- }
-
- render() {
-   return(
-     <div>
-       hoge
-     </div>
-   ) 
- }
-}
+export default App;

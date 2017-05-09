@@ -1,0 +1,17 @@
+.c-container {
+  height: 100vh;
+  color: #fff;
+  background-color: #22272a;
+  font-family: brandon-grotesque,sans-serif;
+}
+
+.c-form-input {
+  color: #fff;
+  background-color: transparent;
+  border-bottom: 2px solid #1888c8;
+}
+
+.c-form-input:focus {
+  color: #fff;  
+  background-color: transparent;
+}
