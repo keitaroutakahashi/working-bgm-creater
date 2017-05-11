@@ -1,3 +1,6 @@
+/*
+  create page
+*/
 .c-container {
   height: 100vh;
   color: #fff;
@@ -14,4 +17,31 @@
 .c-form-input:focus {
   color: #fff;  
   background-color: transparent;
+}
+
+
+
+/*
+  play page
+*/
+.p-playList {
+  height: 100vh;
+  overflow: hidden;
+  border-right: 1px solid #ddd;
+}
+
+.p-playList-items {
+  color: #333;
+}
+
+.p-playView {
+  text-align: center;
+}
+
+.p-playView-image {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
 }

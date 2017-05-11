@@ -7,14 +7,15 @@ import { createLogger } from 'redux-logger';
 import App from './components/App';
 import reducers from './reducers';
 
-import { changeFirstArtists,changeSecondArtists, changeThirdArtists } from './actions/';
+import { changeFirstArtists,changeSecondArtists, changeThirdArtists, fetchAPI } from './actions/';
 
-const store = createStore(reducers, applyMiddleware(createLogger()));
+const store = createStore(reducers, applyMiddleware(thunk, createLogger()));
 
 
-store.dispatch(changeFirstArtists('くり'))
-store.dispatch(changeSecondArtists('くfekfpり'))
-store.dispatch(changeThirdArtists('くfewfweり'))
+store.dispatch(changeFirstArtists('hoge'))
+
+store.dispatch(fetchAPI())
+
 render(
   <Provider store={store}>
     <App />    
