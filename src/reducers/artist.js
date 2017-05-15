@@ -1,7 +1,7 @@
 const artist = (state = '', action) => {
   switch(action.type) {
     case 'CHANGE_ARTIST':
-      return action.artist;
+      return action.name;
     default:
       return state;
   }

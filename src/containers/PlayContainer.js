@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
-import { fetchAPI } from '../actions';
+import { fetchAPI, chnageSong } from '../actions';
 import Play from '../components/Play';
 
 
 
 const mapStateToProps = (state) => {
   return {
-    songs: state.songs
+    songs: state.songs,
+    currentNumber: state.currentNumber,
+    currentView: state.currentView,
   }
 }
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    onChangeKeywords: (key) => {
-      dispatch(fetchAPI(key))
+    onChangeSong: () => {
+      dispatch(chnageSong())
     }
   }
 }

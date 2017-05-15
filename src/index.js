@@ -7,14 +7,11 @@ import { createLogger } from 'redux-logger';
 import App from './components/App';
 import reducers from './reducers';
 
-import { changeFirstArtists,changeSecondArtists, changeThirdArtists, fetchAPI } from './actions/';
+import { fetchAPI } from './actions/';
 
 const store = createStore(reducers, applyMiddleware(thunk, createLogger()));
 
 
-store.dispatch(changeFirstArtists('hoge'))
-
-store.dispatch(fetchAPI())
 
 render(
   <Provider store={store}>

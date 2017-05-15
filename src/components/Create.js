@@ -1,8 +1,13 @@
 import React from 'react';
+import FavoriteContainer from '../containers/FavoriteContainer';
+
 
 export default class Create extends React.Component {
   constructor() {
     super();
+    this.state = {
+      input: null,
+    }
   }
 
   componentWillReceiveProps({songs}) {
@@ -10,33 +15,41 @@ export default class Create extends React.Component {
   }
 
 
-  createMusic(songs) {
-    console.log(songs)
-    const audio = new Audio(songs.first[0].previewUrl)
-    audio.play();
+  onClickSubit() {
+    this.props.changeView('play');
+    this.props.fetchAPI(this.props.artist);
   }
 
 
+
+
   render() {
-    return(
-      <div className="container-fluid c-container">
+    const { currentView } = this.props;
+
+    return (
+      <div className="container-fluid c-container" style={{display: currentView === 'create' ? 'block' : 'none'}}>
         <div className="row">
-          <div className="col-3">
-
-          </div>
-          <div className="col-6">
-            <h2>BGM CREATER</h2>
-            <p>Aritist</p>
-            <div className="input-group">
-              <input type="text" className="form-control c-form-input" />
+          <div className="c-box c-box-left col-3"></div>
+          <div className="c-box c-box-center col-6">
+            <h2 className="c-box-ttl">BGM CREATER</h2>
+            <p className="c-box-desc">Enter the name of an artist you like</p>
+            <div className="c-box-input input-group">
+              <input
+                type="text"
+                onChange={(e) => {this.props.changeName(e.target.value)}}
+                className="form-control c-form-input"
+                value={this.props.artist}
+              />
             </div>
-            <div className="">
-              <button type="button" onClick={() => {console.log('ok')}} className="btn btn-primary">MAKE IT</button>      
-            </div>
+            <FavoriteContainer />
+            <button
+              type="button"
+              onClick={() => {this.onClickSubit()}}
+              className="btn btn-primary">
+              MAKE IT
+            </button>
           </div>
-          <div className="col-3">
-
-          </div>
+          <div className="c-box c-box-right col-3"></div>
         </div>
       </div>
     );

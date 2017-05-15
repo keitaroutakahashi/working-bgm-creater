@@ -1,24 +1,9 @@
-import $ from 'jquery';
 import fetchJsonp from 'fetch-jsonp';
 
 
-export const changeFirstArtists = (name) => {
+export const changeArtist = (name) => {
   return {
-    type: 'CHANGE_FIRST',
-    name,
-  }
-}
-
-export const changeSecondArtists = (name) => {
-  return {
-    type: 'CHANGE_SECOND',
-    name,
-  }
-}
-
-export const changeThirdArtists = (name) => {
-  return {
-    type: 'CHANGE_THIRD',
+    type: 'CHANGE_ARTIST',
     name,
   }
 }
@@ -30,8 +15,8 @@ export const createBGM = () => {
 }
 
 
-export const fetchAPI = () => dispatch =>
-  fetchJsonp('https://itunes.apple.com/search?lang=ja_jp&entry=music&media=music&country=JP&term=flower&attribute=artistTerm&limit=10')
+export const fetchAPI = (name) => dispatch =>
+  fetchJsonp(`https://itunes.apple.com/search?lang=ja_jp&entry=music&media=music&country=JP&term=${name}&attribute=artistTerm&limit=10`)
   .then(function(response) {
     return response.json()
   }).then(function(json) {
@@ -43,5 +28,18 @@ export const receveData = (songs) => {
   return {
     type: 'RECEVE_DATA',
     songs,
+  }
+}
+
+export const chnageSong = () => {
+  return {
+    type: 'CHANGE_SONG',
+  }
+}
+
+export const chnageView = (view) => {
+  return {
+    type: 'CHANGE_VIEW',
+    view,
   }
 }

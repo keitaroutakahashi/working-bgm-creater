@@ -1,11 +1,45 @@
+body, p, h1, h2, input {
+  font-family: 'Raleway', sans-serif;
+}
+
 /*
-  create page
+  CREATE PAGE
 */
 .c-container {
   height: 100vh;
   color: #fff;
   background-color: #22272a;
   font-family: brandon-grotesque,sans-serif;
+}
+
+.c-box {
+  height: 100vh;
+  text-align: center;
+}
+
+.c-box-left { background-color: #272c30; }
+
+.c-box-center {
+  padding-top: 100px;
+  background-color: #22272a;
+}
+
+.c-box-right { background-color: #1d2224; }
+
+.c-box-ttl {
+  margin-bottom: 50px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.c-box-desc {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.c-box-input {
+  margin-bottom: 50px;
+  padding: 0 50px;
 }
 
 .c-form-input {
@@ -19,10 +53,50 @@
   background-color: transparent;
 }
 
+.c-favorite {
+  list-style-type: none;
+  text-align: left;
+}
+
+.c-favorite > li {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  cursor: pointer;
+}
+.c-favorite > li::before,
+.c-favorite > li::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 0;
+  height: 2px; 
+  background: #1888c8;
+  transition: .3s;
+}
+.c-favorite > li::before { left: 50%; }
+.c-favorite > li::after{ right: 50%; }
+.c-favorite > li:hover::before,
+.c-favorite > li:hover::after { width: 50%; }
+
+
+
+.c-favorite-appear {
+  opacity: 0.01;
+}
+
+.c-favorite-appear.c-favorite-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
 
 
 /*
-  play page
+  PLAY PAGE
 */
 .p-playList {
   height: 100vh;

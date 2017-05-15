@@ -6,7 +6,7 @@ import PlayContainer from '../containers/PlayContainer';
 
 const App = () => (
   <div>
-    {/*<CreateContainer />*/}
+    <CreateContainer />
     <PlayContainer />
   </div>
 );

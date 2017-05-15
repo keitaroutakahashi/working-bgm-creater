@@ -1,4 +1,5 @@
 const songs = (state = [], action) => {
+
   switch(action.type) {
     case 'RECEVE_DATA':
       return state.concat(action.songs)
