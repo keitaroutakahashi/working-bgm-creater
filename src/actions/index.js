@@ -31,9 +31,10 @@ export const receveData = (songs) => {
   }
 }
 
-export const chnageSong = () => {
+export const chnageSong = (num) => {
   return {
     type: 'CHANGE_SONG',
+    num,
   }
 }
 

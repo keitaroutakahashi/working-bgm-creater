@@ -14,8 +14,8 @@ const mapStateToProps = (state) => {
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    onChangeSong: () => {
-      dispatch(chnageSong())
+    onChangeSong: (num) => {
+      dispatch(chnageSong(num))
     }
   }
 }

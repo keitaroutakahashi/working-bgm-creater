@@ -5,15 +5,19 @@ import Item from './PlayListItem';
 export default class Play extends React.Component {
   constructor() {
     super();
+    this.state = {
+      song: '',
+    }
   }
 
 
   componentWillReceiveProps({ songs, currentNumber }) {
     if(songs.length) {
       const audio = new Audio(songs[currentNumber].previewUrl)
-      // audio.play();
+      this.setState({song: audio})
+      audio.play();
       audio.addEventListener('ended', () => {
-        this.props.onChangeSong();
+        this.props.onChangeSong(this.props.currentNumber + 1);
       })
     }
 
@@ -42,7 +46,11 @@ export default class Play extends React.Component {
             <ul className="p-playList-items list-group">
               {
                 this.props.songs.map(song => 
-                  <Item key={song.trackId} title={song.trackName} src={song.previewUrl} />
+                  <Item
+                    key={song.trackId}
+                    title={song.trackName}
+                    song={this.state.song}
+                    changeSong={this.props.onChangeSong} />
                 )
               }
             </ul>
