@@ -38,7 +38,7 @@ export const chnageSong = (num) => {
   }
 }
 
-export const chnageView = (view) => {
+export const changeView = (view) => {
   return {
     type: 'CHANGE_VIEW',
     view,

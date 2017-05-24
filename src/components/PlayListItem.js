@@ -13,12 +13,13 @@ export default class Item extends React.Component {
     return (
       <li
         onClick={(e) => {
-          const hoge = Array.prototype.indexOf.call(document.querySelectorAll('.p-playList-items')[0].querySelectorAll('li'), e.currentTarget);
-          console.log(hoge)
+          const clickNum = Array.prototype.indexOf.call(document.querySelectorAll('.p-playList-items')[0].querySelectorAll('li'), e.currentTarget);
           song.pause()
-          changeSong(hoge)
+          changeSong(clickNum)
         }}
-        className="list-group-item">{ this.props.title }
+        className="list-group-item">
+          <i className="fa fa-volume-up"></i>
+          { this.props.title }
       </li>
     )
   }

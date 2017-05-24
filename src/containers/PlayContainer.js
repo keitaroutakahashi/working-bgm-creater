@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAPI, chnageSong } from '../actions';
+import { fetchAPI, chnageSong, changeView, receveData } from '../actions';
 import Play from '../components/Play';
 
 
@@ -16,7 +16,13 @@ const mapStateToDispatch = (dispatch) => {
   return {
     onChangeSong: (num) => {
       dispatch(chnageSong(num))
-    }
+    },
+    changeView: (view) => {
+      dispatch(changeView(view))
+    },
+    resetSong: (song) => {
+      dispatch(receveData(song))
+    },
   }
 }
 

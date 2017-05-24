@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changeArtist, chnageView, fetchAPI } from '../actions';
+import { changeArtist, changeView, fetchAPI } from '../actions';
 import Create from '../components/Create';
 
 
@@ -17,7 +17,7 @@ const mapStateToDispatch = (dispatch) => {
       dispatch(changeArtist(name))
     },
     changeView: (view) => {
-      dispatch(chnageView(view))
+      dispatch(changeView(view))
     },
     fetchAPI: (name) => {
       dispatch(fetchAPI(name))
