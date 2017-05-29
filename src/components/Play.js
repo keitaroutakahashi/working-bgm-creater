@@ -13,8 +13,6 @@ export default class Play extends React.Component {
 
   componentWillReceiveProps({ songs, currentNumber }) {
     if(songs.length) {
-      console.log(this.props.currentNumber)
-      console.log(songs.length)
       const audio = new Audio(songs[currentNumber].previewUrl)
       this.setState({song: audio})
       audio.play();
@@ -32,6 +30,7 @@ export default class Play extends React.Component {
   hundleBackBtn() {
     this.props.changeView('create');
     this.props.resetSong([]);
+    this.props.onChangeSong(0);     
     this.state.song.pause();
   }
 
