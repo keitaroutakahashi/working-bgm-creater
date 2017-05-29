@@ -9,7 +9,18 @@ import reducers from './reducers';
 
 import { fetchAPI } from './actions/';
 
-const store = createStore(reducers, applyMiddleware(thunk, createLogger()));
+
+const middleware = [ thunk ];
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
+}
+
+const store = createStore(
+  reducers,
+  applyMiddleware(...middleware)
+)
+
+// const store = createStore(reducers, applyMiddleware(thunk, createLogger()));
 
 
 
