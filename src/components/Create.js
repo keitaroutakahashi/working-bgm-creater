@@ -16,8 +16,12 @@ export default class Create extends React.Component {
 
 
   onClickSubit() {
-    this.props.changeView('play');
+    if(this.props.artist === '') {
+
+    } else {
+      this.props.changeView('play');
     this.props.fetchAPI(this.props.artist);
+    }
   }
 
 

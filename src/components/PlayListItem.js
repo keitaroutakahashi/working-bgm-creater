@@ -5,11 +5,13 @@ export default class Item extends React.Component {
     super();
   }
 
+  componentWillReceiveProps() {
 
+  }
 
 
   render() {
-    const { changeSong, song } = this.props;
+    const { changeSong, song, num } = this.props;
     return (
       <li
         onClick={(e) => {
@@ -18,7 +20,6 @@ export default class Item extends React.Component {
           changeSong(clickNum)
         }}
         className="list-group-item">
-          <i className="fa fa-volume-up"></i>
           { this.props.title }
       </li>
     )

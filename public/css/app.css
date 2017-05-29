@@ -118,6 +118,10 @@ body, p, h1, h2, input {
   color: #333;
 }
 
+.p-playList-items > li {
+  cursor: pointer;
+}
+
 .p-playView {
   text-align: center;
 }
